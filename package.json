@@ -1,0 +1,27 @@
+{
+  "name": "nodeproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/app.js -e js,hbs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoaoBarth/nodePracticeProject.git"
+  },
+  "author": "Barth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoaoBarth/nodePracticeProject/issues"
+  },
+  "homepage": "https://github.com/JoaoBarth/nodePracticeProject#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "handlebars": "^4.7.6",
+    "hbs": "^4.1.1",
+    "mongoose": "^5.10.6",
+    "path": "^0.12.7"
+  }
+}
