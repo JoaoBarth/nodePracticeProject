@@ -2,20 +2,26 @@ const express = require('express')
 const path = require('path')
 const hbs = require('hbs')
 
+
 const publicDirectory = path.join(__dirname, '../../public')
 const viewsPath = path.join(__dirname,'../../templates/views')
 const partialsPath = path.join(__dirname,'../../templates/partials')
 
-const app = express()
+const router = express()
 
 //setup handlebars
-app.set('view engine', 'hbs')
-app.set('views', viewsPath)
+router.set('view engine', 'hbs')
+router.set('views', viewsPath)
 hbs.registerPartials(partialsPath)
-app.use(express.static(publicDirectory))
+router.use(express.static(publicDirectory))
+
 
 //routes here
-const routes = require('../app/routes/routes');
-routes(app);
+const genericRouter = require('../app/routes/generic');
+const userRouter = require('../app/routes/user')
 
-module.exports = app
+router.use(express.json())
+router.use(userRouter)
+router.use(genericRouter)
+
+module.exports = router
