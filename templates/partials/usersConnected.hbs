@@ -1,0 +1,9 @@
+<ul class="connectedUsersList">
+    <h1>Connected Users</h1>
+  {{#each userConnected}}
+    <li>
+        <img src="/users/{{this.id}}/avatar" height=32 Width=32 >
+        {{this.name}}, {{this.age}}
+    </li>
+  {{/each}}
+</ul>

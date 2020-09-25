@@ -1,10 +1,14 @@
 const express = require('express')
 const router = new express.Router()
+const User = require('../../models/user')
 
-router.get('/', (req,res) =>{
+router.get('/', async (req,res) =>{
+    const connectedUsersList = await User.find({}).where('__v').gt(1)
+
     res.render('index', {
         title: 'Test',
-        name: 'Barth'
+        name: 'Barth',
+        userConnected: connectedUsersList
     })
 })
 router.get('/about', (req, res) => {
